@@ -1,3 +1,11 @@
+from tkinter import *
+import pyshorteners
+# Function for short URL and set value in textbox
+def convert():
+    s = pyshorteners.Shortener().tinyurl.short(url.get())
+    shorturl.set(s)
+root = Tk()
+root.title(" URL Shortner")
 root.geometry("400x350")
 root.resizable(False, False)
 root.config(background="#ffffe0")
@@ -14,8 +22,4 @@ Button(root, text="Convert...", bg="#c3afaf", fg="#000000", font="verdana 12 "
 Label(root, text="Shortened URL - Copy & Paste in browser", bg="#ffffe0", fg="#E74C3C"
             , font="verdana 10 bold", padx=2, pady=2).place(x=7, y=250)
 Entry(root, textvariable=shorturl, width=35, font="verdana 12").place(x=7, y=270)
-statusvar = StringVar()
-statusvar.set("©https://atharvayadav.medium.com/")
-Label(root, textvariable=statusvar, relief=GROOVE,  bg="#ffffe0"
-            , fg="#2C3E50", width=60).place(x=-1, y=328)
 root.mainloop()
